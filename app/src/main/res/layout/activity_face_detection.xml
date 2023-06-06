@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:opencv="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FaceDetectionActivity">
+
+    <org.opencv.android.JavaCameraView
+        android:id="@+id/javaCameraView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:show_fps="true"
+        opencv:camera_id="back" />
+
+    <ImageView
+        android:id="@+id/previewImageView"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:contentDescription="@string/detected_face_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#65000000"
+        android:columnCount="3"
+        android:orientation="horizontal"
+        android:paddingLeft="5dp"
+        android:paddingEnd="5dp"
+        android:paddingRight="5dp"
+        android:rowCount="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/previewImageView">
+
+        <Button
+            android:id="@+id/btnFaceRecognitionVerify"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_columnSpan="1"
+            android:layout_gravity="end"
+            android:gravity="end"
+            android:text="@string/face_verify"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnFaceRecognitionRegister"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_columnSpan="1"
+            android:text="@string/face_register"
+            android:textSize="18sp" />
+
+        <ToggleButton
+            android:id="@+id/toggleBtnSwitchCameraLen"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_row="0"
+            android:layout_rowSpan="1"
+            android:layout_column="2"
+            android:layout_columnSpan="1"
+            android:checked="false"
+            android:gravity="end"
+            android:textOff="@string/camera_len_front"
+            android:textOn="@string/camera_len_back"
+            android:textSize="18sp" />
+    </GridLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

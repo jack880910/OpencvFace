@@ -19,7 +19,7 @@ public class HomePageActivity extends AppCompatActivity {
         btnFace.setOnClickListener(v -> {
 
             Intent intent = new Intent(HomePageActivity.this, FaceDetectionActivity.class);
-            intent.putExtra("faceLabel", User.name);
+            intent.putExtra("faceLabel", User.key);
             startActivity(intent);
         });
 

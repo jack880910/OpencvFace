@@ -36,14 +36,15 @@ public class QrcodeActivity extends AppCompatActivity {
 
 
             try{
-                String content = "姓名：" + User.name + "\n" +
+                String content = "身分證號碼：" + User.key + "\n" +
+                        "姓名：" + User.name + "\n" +
                         "生日：" + User.birthday + "\n" +
                         "疫苗名稱：" + User.vaccine_name + "\n" +
                         "疫苗批次：" + User.vaccine_batchNumber + "\n" +
                         "接種日期：" + User.vaccination_date + "\n" +
                         "施打組織：" + User.vaccination_org;
 
-                Log.d("contentgen", ""+User.name);
+                Log.d("contentgen", ""+User.key);
                 Log.d("contentgen", ""+User.birthday);
                 Log.d("contentgen", ""+content);
 

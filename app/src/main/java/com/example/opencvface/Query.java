@@ -85,6 +85,7 @@ public class Query extends AsyncTask<String, Void, JSONObject> {
         if (jsonObject != null) {
             try {
                 // 获取JSON对象中的值
+                User.name = jsonObject.getString("name");
                 User.birthday = jsonObject.getString("birthday");
                 User.vaccine_name = jsonObject.getString("vaccine_name");
                 User.vaccine_batchNumber = jsonObject.getString("vaccine_batchNumber");

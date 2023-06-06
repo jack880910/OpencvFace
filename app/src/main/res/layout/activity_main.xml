@@ -10,7 +10,7 @@
     tools:ignore="InefficientWeight">
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/identity"
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:layout_marginStart="24dp"
@@ -19,7 +19,7 @@
         android:layout_weight="1"
         android:autofillHints="@string/username"
         android:ems="10"
-        android:hint="@string/username"
+        android:hint="身分證字號"
         android:inputType="text"
         android:singleLine="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,23 +42,42 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username"
+        app:layout_constraintTop_toBottomOf="@+id/identity"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints,DuplicateSpeakableTextCheck" />
 
     <Button
         android:id="@+id/btnEnter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="288dp"
+        android:layout_height="63dp"
         android:layout_marginTop="64dp"
+        android:background="@drawable/rounded_button"
         android:gravity="center|center_horizontal|center_vertical"
-        android:text="@string/enter"
+        android:text="登入"
+        android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/password"
         app:layout_constraintVertical_bias="0.0"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnRegister"
+        android:layout_width="288dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="64dp"
+        android:background="@drawable/rounded_button"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="註冊"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password"
+        app:layout_constraintVertical_bias="0.18"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

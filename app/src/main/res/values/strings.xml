@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OpenCV Face Detection</string>
+    <string name="app_name">區塊鏈疫苗施打證明系統</string>
     <string name="face_register">人臉登錄</string>
     <string name="face_verify">人臉驗證</string>
     <string name="camera_len_back">後鏡頭</string>

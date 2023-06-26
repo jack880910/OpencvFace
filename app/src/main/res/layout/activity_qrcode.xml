@@ -14,7 +14,7 @@
         android:id="@+id/code_img"
         android:layout_width="280dp"
         android:layout_height="260dp"
-        android:layout_marginTop="56dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,16 +22,16 @@
 
     <TextView
         android:id="@+id/content"
-        android:layout_width="368dp"
-        android:layout_height="257dp"
+        android:layout_width="354dp"
+        android:layout_height="412dp"
         android:text="TextView"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/code_img"
-        app:layout_constraintVertical_bias="0.479" />
+        app:layout_constraintVertical_bias="0.136" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

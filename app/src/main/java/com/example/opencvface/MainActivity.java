@@ -32,8 +32,18 @@ public class MainActivity extends AppCompatActivity {
             User.key = identity;
             startActivity(intent);
 
-            //登錄後先查詢資料
-            new Query().execute(identity);
+            //if private == null, genkey then query; else, query;
+            try {
+                if (User.private_key == null) {
+                    DigitalSignature.genKeypair(User.key);
+                    new Query().execute(User.key);
+                } else {
+                    new Query().execute(User.key);
+                }
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+
         });
 
     }

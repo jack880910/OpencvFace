@@ -14,10 +14,15 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.spec.X509EncodedKeySpec;
+import java.util.Base64;
 
 public class Query extends AsyncTask<String, Void, JSONObject> {
 
@@ -52,7 +57,7 @@ public class Query extends AsyncTask<String, Void, JSONObject> {
             writer.close();
             out.close();
 
-            //以下調整中
+
             int responseCode = urlConnection.getResponseCode();
 
             if (responseCode == HttpURLConnection.HTTP_OK) {
@@ -91,10 +96,40 @@ public class Query extends AsyncTask<String, Void, JSONObject> {
                 User.vaccine_batchNumber = jsonObject.getString("vaccine_batchNumber");
                 User.vaccination_date = jsonObject.getString("vaccination_date");
                 User.vaccination_org = jsonObject.getString("vaccination_org");
+                User.signature_org = jsonObject.getString("signature_org");
+                User.json_data = jsonObject.toString();
+                Log.d("Jsonobj", "JsonObj" + jsonObject);
+
+                //處理json
+                jsonObject.remove("signature_org");
+                String jsonString = jsonObject.toString();
+                Log.d("Jsonobj", "Jsonstring" + jsonString);
+                //驗證數位簽章
+                DigitalSignature.verifySignature(jsonString, User.signature_org);
+
+                //user簽章
+                String content_sign = User.key + "&" +
+                        User.name + "&" +
+                        User.birthday + "&" +
+                        User.vaccine_name + "&" +
+                        User.vaccine_batchNumber + "&" +
+                        User.vaccination_date + "&" +
+                        User.vaccination_org + "&" +
+                        User.signature_org;
+                byte [] byte_data = content_sign.getBytes("UTF-8");
+                byte[] signatureBuf = DigitalSignature.sign(byte_data, User.private_key, "SHA256withECDSA");
+                User.signature_user = new String(signatureBuf, "UTF-8");
+                Log.d("User_signature:", "" + User.signature_user);
+                Log.d("content_sign", "" + content_sign);
+
+
 
             } catch (JSONException e) {
                 e.printStackTrace();
+            } catch (Exception e) {
+                throw new RuntimeException(e);
             }
         }
+        return ;
     }
 }

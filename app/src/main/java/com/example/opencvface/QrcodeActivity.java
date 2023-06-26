@@ -36,25 +36,43 @@ public class QrcodeActivity extends AppCompatActivity {
 
 
             try{
-                String content = "身分證號碼：" + User.key + "\n" +
+                String content_display = "身分證號碼：" + User.key + "\n" +
                         "姓名：" + User.name + "\n" +
-                        "生日：" + User.birthday + "\n" +
+                        "性別：" + User.birthday + "\n" +
                         "疫苗名稱：" + User.vaccine_name + "\n" +
                         "疫苗批次：" + User.vaccine_batchNumber + "\n" +
                         "接種日期：" + User.vaccination_date + "\n" +
-                        "施打組織：" + User.vaccination_org;
+                        "施打組織：" + User.vaccination_org + "\n" +
+                        "數位簽章驗證：" + User.isVerify + "\n" +
+                        "資料提供者數位簽章：" + User.signature_org;
 
-                Log.d("contentgen", ""+User.key);
-                Log.d("contentgen", ""+User.birthday);
-                Log.d("contentgen", ""+content);
+
+
+                String content_gencode = User.key + "&" +
+                        User.name + "&" +
+                        User.birthday + "&" +
+                        User.vaccine_name + "&" +
+                        User.vaccine_batchNumber + "&" +
+                        User.vaccination_date + "&" +
+                        User.vaccination_org + "&" +
+                        User.signature_org + "&" +
+                        User.signature_user;
+                Log.d("QRcode_content:", "" + content_gencode);
+
+
+//                Log.d("contentgen", ""+User.key);
+//                Log.d("contentgen", ""+User.birthday);
+//                Log.d("contentgen", ""+User.signature_org);
+//                Log.d("contentgen", ""+content);
+//                Log.d("contentgen", ""+QR_content);
 
                 Hashtable<EncodeHintType, Object> hints = new Hashtable();
                 hints.put(EncodeHintType.CHARACTER_SET, "utf-8");
-                result = writer.encode(content, BarcodeFormat.QR_CODE, 800,800, hints);
+                result = writer.encode(content_gencode, BarcodeFormat.QR_CODE, 800,800, hints);
                 bitmap = encoder.createBitmap(result);
 
                 code_img.setImageBitmap(bitmap);
-                tvContent.setText(content);
+                tvContent.setText(content_display);
 
             }catch(WriterException e){
                 e.printStackTrace();

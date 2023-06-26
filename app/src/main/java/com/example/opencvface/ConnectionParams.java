@@ -5,8 +5,10 @@ public class ConnectionParams {
     public static final int FR_PORT = 8080;
     public static final String FR_ACTION_VERIFY = "verify-by-tensor";
     public static final String FR_ACTION_REGISTER = "register-by-tensor";
-
     public static final String BLOCK_ACTION_QUERY = "queryCar";
+    public static final String BLOCK_ACTION_VERIFY = "verifySignature";
+    public static final String BLOCK_ACTION_CREATEKEY = "createPubkey";
+    public static final String BLOCK_ACTION_QUERYKEY = "queryPubkey";
 
 
     public ConnectionParams() {

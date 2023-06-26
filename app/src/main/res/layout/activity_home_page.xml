@@ -8,12 +8,12 @@
 
     <TextView
         android:id="@+id/Title"
-        android:layout_width="263dp"
-        android:layout_height="53dp"
+        android:layout_width="358dp"
+        android:layout_height="47dp"
         android:layout_marginTop="60dp"
-        android:text="區塊鏈疫苗護照"
-        android:textSize="30sp"
+        android:text="區塊鏈疫苗施打證明系統"
         android:textAlignment="center"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
